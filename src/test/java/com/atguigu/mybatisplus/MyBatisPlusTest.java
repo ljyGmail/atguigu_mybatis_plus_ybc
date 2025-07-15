@@ -28,6 +28,8 @@ public class MyBatisPlusTest {
 
     @Test
     public void testSelectList() {
+        // 查询所有的用户信息
+        // SELECT id,name,age,email FROM user
         List<User> userList = userMapper.selectList(null);
         userList.forEach(System.out::println);
     }
@@ -77,5 +79,33 @@ public class MyBatisPlusTest {
         User user = new User(4L, "홍길동", null, "hgd@mybatis.com");
         int result = userMapper.updateById(user);
         System.out.println("result: " + result);
+    }
+
+    @Test
+    public void testSelectById() {
+        // 通过id查询用户信息
+        // SELECT id,name,age,email FROM user WHERE id=?
+        User user = userMapper.selectById(1L);
+        System.out.println("user: " + user);
+    }
+
+    @Test
+    public void testSelectBatchIds() {
+        // 根据多个id查询多个用户信息
+        // SELECT id,name,age,email FROM user WHERE id IN ( ? , ? , ? )
+        List<Long> list = Arrays.asList(1L, 2L, 3L);
+        List<User> users = userMapper.selectBatchIds(list);
+        users.forEach(System.out::println);
+    }
+
+    @Test
+    public void testSelectByMap() {
+        // 根据map集合中的条件查询用户信息
+        // SELECT id,name,age,email FROM user WHERE name = ? AND age = ?
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", "Jack");
+        map.put("age", 20);
+        List<User> users = userMapper.selectByMap(map);
+        users.forEach(System.out::println);
     }
 }
