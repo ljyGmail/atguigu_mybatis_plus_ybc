@@ -108,4 +108,10 @@ public class MyBatisPlusTest {
         List<User> users = userMapper.selectByMap(map);
         users.forEach(System.out::println);
     }
+
+    @Test
+    public void testCustomSelect() {
+        Map<String, Object> map = userMapper.selectMapById(1L);
+        System.out.println("map: " + map);
+    }
 }
