@@ -69,4 +69,13 @@ public class MyBatisPlusTest {
         int result = userMapper.deleteBatchIds(list);
         System.out.println("result: " + result);
     }
+
+    @Test
+    public void testUpdate() {
+        // 修改用户信息
+        // UPDATE user SET name=?, email=? WHERE id=?
+        User user = new User(4L, "홍길동", null, "hgd@mybatis.com");
+        int result = userMapper.updateById(user);
+        System.out.println("result: " + result);
+    }
 }
