@@ -16,6 +16,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+// 设置实体类所对应的表名
+// @TableName("t_user")
 public class User {
     private Long id;
     private String name;
