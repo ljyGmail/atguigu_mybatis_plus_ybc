@@ -1,9 +1,13 @@
 package com.atguigu.mybatisplus;
 
+import com.atguigu.mybatisplus.pojo.User;
 import com.atguigu.mybatisplus.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ClassName: C_MyBatisPlusServiceTest
@@ -26,5 +30,19 @@ public class C_MyBatisPlusServiceTest {
         // SELECT COUNT( * ) FROM user
         long count = userService.count();
         System.out.println("count: " + count);
+    }
+
+    @Test
+    public void testInsertBatch() {
+        // 批量添加
+        // 单个INSERT语句循环执行10次
+        // INSERT INTO user ( id, name, age ) VALUES ( ?, ?, ? )
+        List<User> list = new ArrayList<>();
+        for (int i = 1; i < 10; i++) {
+            User user = new User(null, "ybc" + i, 20 + i, null);
+            list.add(user);
+        }
+        boolean result = userService.saveBatch(list);
+        System.out.println("result: " + result);
     }
 }
