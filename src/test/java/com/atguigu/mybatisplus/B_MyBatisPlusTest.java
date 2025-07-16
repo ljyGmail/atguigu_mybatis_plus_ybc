@@ -21,7 +21,7 @@ import java.util.Map;
  * @Version 1.0
  */
 @SpringBootTest
-public class MyBatisPlusTest {
+public class B_MyBatisPlusTest {
 
     @Autowired
     private UserMapper userMapper;
