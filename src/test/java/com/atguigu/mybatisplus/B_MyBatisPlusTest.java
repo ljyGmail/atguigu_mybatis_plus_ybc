@@ -41,10 +41,10 @@ public class B_MyBatisPlusTest {
 
         // 给User类的uid添加@TableId注解后:
         // INSERT INTO t_user ( uid, name, age, email ) VALUES ( ?, ?, ?, ? )
-        User user = new User(null, "이영애", 25, "yylee@mybatis.com");
+        User user = new User(null, "이영애", 28, "yylee@mybatis.com");
         int result = userMapper.insert(user);
         System.out.println("result: " + result);
-        System.out.println("id: " + user.getUid());
+        System.out.println("id: " + user.getId());
     }
 
     @Test

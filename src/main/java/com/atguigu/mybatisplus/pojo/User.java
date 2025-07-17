@@ -21,8 +21,9 @@ import lombok.NoArgsConstructor;
 // @TableName("t_user")
 public class User {
     // 将属性所对应的字段指定为主键
-    @TableId
-    private Long uid;
+    // @TableId注解的value属性用于指定数据库表中主键的字段
+    @TableId(value = "uid")
+    private Long id;
     private String name;
     private Integer age;
     private String email;
