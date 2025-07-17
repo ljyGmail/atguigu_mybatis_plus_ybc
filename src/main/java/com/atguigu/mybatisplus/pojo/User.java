@@ -1,5 +1,6 @@
 package com.atguigu.mybatisplus.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,9 @@ import lombok.NoArgsConstructor;
 // 设置实体类所对应的表名
 // @TableName("t_user")
 public class User {
-    private Long id;
+    // 将属性所对应的字段指定为主键
+    @TableId
+    private Long uid;
     private String name;
     private Integer age;
     private String email;
